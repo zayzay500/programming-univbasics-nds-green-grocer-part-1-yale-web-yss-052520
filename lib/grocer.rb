@@ -16,10 +16,10 @@ def consolidate_cart(cart)
   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
   cart.each_with_object([]) do |item, consolidated_cart|
     if !find_item_by_name_in_collection(item[:item], consolidated_cart)
-      item[:quantity] = 1
+      item[:count] = 1
       consolidated_cart.push item
     else
-      find_item_by_name_in_collection(item[:item], consolidated_cart)[:quantity] += 1
+      find_item_by_name_in_collection(item[:item], consolidated_cart)[:count] += 1
     end
   end
 
