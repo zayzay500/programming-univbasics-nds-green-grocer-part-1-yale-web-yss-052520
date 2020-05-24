@@ -17,7 +17,7 @@ def consolidate_cart(cart)
   cart.each_with_object([]) do |item, consolidated_cart|
     if !find_item_by_name_in_collection(item[:item], consolidated_cart)
       item[:quantity] = 1
-      consolidated_cart >> item
+      consolidated_cart.push item
     else
       find_item_by_name_in_collection(item[:item], consolidated_cart)[:quantity] += 1
     end
